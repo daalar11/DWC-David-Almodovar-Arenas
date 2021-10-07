@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var base=[1,2,7];
+        var altura=[1,2,19];
+        var area=0;
+        var areasgran=0;
+        for(var i=0;i<base.length;i++){
+            area=(base[i]+altura[i])/2;
+            document.write(area);
+            if(area>12){
+                areasgran++;
+            }
+            area=0;
+        }
+        document.write(areasgran+" triangles tenen un area major de 12")
+        document.write("<br>")
+        var numeros=[1,2,3,4,5,6,7,8,9,10];
+        var numeross=0;
+        for(var i=5;i<numeros.length;i++){
+            numeross+=numeros[i];
+        }
+        document.write(numeross);
+        document.write("<br>")
+        for(var i=0;i<11;i++){
+            document.write(5*i);
+        }
+        document.write("<br>")
+        var n=3;
+        for(var i=0;i<11;i++){
+            document.write(n*i);
+        }
+        var triangle=[3,3,3];
+        var triangle2=[1,2,3];
+        var triangle3=[1,2,3];
+        var triangle4=[1,2,3];
+        var triangles=[triangle,triangle2,triangle3,triangle4]
+        var isosceles=0;
+        var scalene=0;
+        var equilateral=0;
+        document.write("<br>")
+        if(triangle[0]==triangle[1]&&triangle[0]==triangle[2]){
+            document.write("equiltareal <br>")
+        }
+        for(var i=0;i<triangles.length;i++){
+            if(triangles[i[0]]==triangles[i[1]]&&triangles[i[0]]==triangles[i[2]]){
+                equilateral+=1;
+            }
+            if((triangles[i[0]]==triangles[i[1]])!=triangles[i[2]]){
+                isosceles+=1;
+            }
+            if((triangles[i[0]]!=triangles[i[1]])!=triangles[i[2]]){
+                scalene+=1;
+    
+                
+            }
+        }
+        document.write("scalene: "+scalene)
+            document.write(" isosceles: "+isosceles)
+            document.write(" equilateral: "+equilateral)
+        document.write("<br>")
+        var positius=0;
+        var negatius=0;
+        var odd=0;
+        var pairsumm=0;
+        var numerosss=[1,2,3,4,5,6,7,8,9,10];
+        for(var i=0;i<numerosss.length;i++){
+            if(numeros[i]>0){
+                positius++;
+            }
+            if(numerosss[i]<0){
+                negatius++;
+            }if
+            (numerosss[i]%2!=0){
+                odd++;
+            }if
+            (numerosss[i]%2==0){
+                pairsumm+=numerosss[i];
+            }
+        }
+        document.write(positius +" " + negatius + " "+odd+" "+pairsumm)
+        document.write("<br>");
+        var classA=[1,2,3,4,5];
+        var classB=[1,2,3,4,5,6];
+        var classC=[1,2,3,5,6,7,8,9,10,1];
+        var mitjA=0;
+        var mitjB=0;
+        var mitjC=0;
+        for(var i=0;i<classA.length;i++){
+            mitjA+=classA[i];
+        }
+        mitjA=mitjA/5
+        document.write(mitjA);
+        for(var i=0;i<classB.length;i++){
+            mitjB+=classB[i];
+            }
+            mitjB=mitjB/6
+            document.write("<br>" +mitjB);
+            
+        for(var i=0;i<classC.length;i++){
+            mitjC+=classC[i];
+            }
+            mitjC=mitjC/10;
+            document.write("<br>" +mitjC);
+            var mirar=[mitjA,mitjB,mitjC];
+            var min=0;
+            for(var i=0;i<mirar.length;i++){
+                if(mirar[i]>min){
+                    min=mirar[i];
+                }
+            }
+            document.write("<br>" +min);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

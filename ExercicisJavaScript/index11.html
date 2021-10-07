@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num=0;
+        var aux=0;
+        do{
+            num=prompt('enter numero: ','')
+            if(num==9999){
+                break;
+            }
+            aux+=parseInt(num);
+        }while(num!=9999);
+        if(aux==0){
+            document.write("zero");
+        }else if(aux>0){
+            document.write("positive");
+        }else if(aux<0){
+            document.write("negative");
+        }
+        document.write("<br>");
+        var banknum=[1,2,3];
+        var bankCli=["pep","tomeu","laura"];
+        var bankMon=[500,1000,1500];
+        var i=0;
+        var count=0;
+        do{
+            document.write(bankCli[i]+" is the owner of" +banknum[i]+
+             "account with" +bankMon[i]+ "€.");
+             count+=bankMon[i];
+             i++;
+        }while(i<bankCli.length);
+        document.write(count);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

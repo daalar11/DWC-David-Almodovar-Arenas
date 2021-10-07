@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var day=23;
+        var month=12;
+        var year=1993;
+        if(day==24&&month==12){
+            document.write("Es nadal");
+        }else{
+            document.write("No es nadal");
+        }
+        var num=[1,2,3];
+        if(num[0]<10&&num[1]<10&&num[2]<10){
+            document.write("<br> Els numeros son menor a 10")
+        }
+        var quadrant=[1,2];
+        if(quadrant[0]>0&&quadrant[1]>0){
+            document.write("<br> First quadrant");
+        }else if(quadrant[0]<0&&quadrant[1]>0){
+            document.write("<br> second quadrant");
+        }else if(quadrant[0]<0&&quadrant[1]<0){
+            document.write("<br> third quadrant");
+        }else if(quadrant[0]>0&&quadrant[1]<0){
+            document.write("<br> fourth quadrant");
+        }
+        var salary=[500,11];
+        if(salary[0]<500&&salary[1]>=10){
+            salary[0]=salary[0]*1.2;
+            document.write("<br>" +salary[0]);
+        }else if(salary[0]<500&&salary[1]<10){
+            salary[0]=salary[0]*1.05;
+            document.write("<br>" +salary[0]);
+        }else if(salary[0]>=500){
+            document.write("<br>" +salary[0]+" te fots no cobres mes");
+        } 
+        var num2=[3,11,11];
+        if(num2[0]<10||num2[1]<10||num2[2]<1){
+            document.write("<br> algun numeros son menor a 10")
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num=1;
+        var num2=50;
+        var num3=-50;
+        while(num<50){
+            document.write(num);
+            num++;
+        }
+        document.write("<br>");
+        while(num2>0){
+            document.write(num2);
+            num2--;
+        }
+        document.write("<br>");
+        while(num3<0){
+            document.write(num3);
+            num3++;
+        }
+        document.write("<br>");
+        var num4=2;
+        while(num4<100){
+            if(num4%2==0){
+            document.write(num4);
+            }
+            num4++;
+        }
+        document.write("<br>");
+        var num7=7;
+        while(num7<=70){
+            document.write(num7);
+            num7=num7+7;
+        }
+        document.write("<br>");
+        var iterator=0;
+        var sutdentMark=[1,2,3,4,5,6,7,8,9,10];
+        while(iterator<sutdentMark.length){
+            if(sutdentMark[iterator]>5){
+                document.write("aprobat");
+            }else{
+                document.write("suspes");
+            }
+            iterator++;
+        }
+        var i=0;
+        document.write("<br>");
+        var heights=[100,120,180,150,180]
+        var count=0;
+            while(i<heights.length){
+                count+=heights[i];
+                i++;
+            }
+            document.write(count/5);
+        document.write("<br>");
+        var j=0;
+        var count2=0;
+        var salary=[1000,600,1800,520,1200];
+        while(j<salary.length){
+            if(salary[j]<1000&&salary[j]>500){
+                document.write(salary[j] +" entre 500 y 1000")
+            }else if(salary[j]>1000){
+                document.write(salary[j] +" major que 1000")
+            }
+            count2+=salary[j];
+            j++;
+        }
+        document.write(count2);
+        document.write("<br>");
+        var z=0;
+        var list1=[1,2,3];
+        var list2=[4,5,6];
+        var aux=0;
+        var aux2=0;
+        while(z<list1.length&&z<list2.length){
+            aux+=list1[z];
+            aux2+=list2[z];
+            z++;
+        }
+        if(aux>aux2){
+            document.write(aux)
+        }else{document.write(aux2)}
+        document.write("<br>");
+        var numeros=[1,2,3,4,5];
+        var x=0;
+        var par=0;
+        var impar=0;
+        while(x<numeros.length){
+            if(numeros[x]%2==0){
+                par +=1;
+            }else{
+                impar+=1;
+            }
+            x++;
+        }
+        document.write("pars: "+ par +" Impars: "+impar);
+        </script>
+</head>
+<body>
+    
+</body>
+</html>
