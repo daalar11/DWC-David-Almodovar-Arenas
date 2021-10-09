@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var vector=[1,1,1,1,1,1,1,1]
+        function vectorSum(){
+            let aux=0;
+            for(var i=0;i<vector.length;i++){
+                aux+=vector[i];
+            }
+            document.write(aux)
+        }
+        function vectorAvg(){
+            let aux=0;
+            for(var i=0;i<vector.length;i++){
+                aux+=vector[i];
+            }
+            aux=aux/8;
+            document.write(aux)
+        }
+        function vectorOver5(){
+            let aux=0;
+            for(var i=0;i<vector.length;i++){
+                if(vector[i]>5){
+                aux+=vector[i];
+                }
+            }
+            document.write(aux)
+        }
+        function vectors(){
+            let aux=0;
+            for(var i=0;i<vector.length;i++){
+                if(vector[i]>5){
+                aux++;
+                }
+            }
+            document.write(aux)
+        }
+        var n=4;
+        var vector2=[3,2,1,1];
+        function exerciseb(){
+            let num1=5;
+            let num2=2;
+            let aux=0;
+            for(var i=0;i<vector2.length;i++){
+                if(i<2){
+                    if(i==0){
+                        vector2[0]=num1;
+                    }else{
+                        vector2[1]=num2;
+                    }
+                }
+                if(i>=2){
+                    if(i%2==0){
+                        vector[i]=vector[i-1];
+                    }else{
+                        vector[i]=vector[i-2]
+                    }
+                }
+                document.write(vector[i]+" ");
+                aux+=vector[i];
+            }
+            document.write(aux);
+        }
+        
+        
+        
+    </script>
+</head>
+<body>
+    <button onclick="exerciseb()">BUTTON</button>
+</body>
+</html>

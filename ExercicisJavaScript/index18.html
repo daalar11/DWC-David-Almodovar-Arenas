@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+            function countNames(){
+                var word;
+                let counter=1;
+                word=prompt("enter a word"," ");
+                while(word!="end"){
+                    word=prompt("enter a word"," ");
+                    counter++;
+                }
+                document.write(counter);
+            }
+            var test="Hola me llamo pepe";
+            var word="llamo";
+            var aux="";
+            var aux2=0;
+            function cercarParaula(){
+                for(var i=0;i<test.length;i++){
+                    while(test.charAt(i)!=' '){
+                        aux.concat(test.charAt(i));
+                    }
+                    if(test.charAt(i)==' '){
+                        if(aux==word){
+                            document.write(word +" apareix a la posicio "+aux2)
+                        }else{
+                            aux2++;
+                            aux="";
+                        }
+                    }
+                }
+            }
+            var string2 = "";
+            function mirarPalindrom( string) {
+                for (var i=string.length-1; i >= 0; i--) {
+                    if (string.charAt(i) != ' ') {
+                        string2 = string2 + string.charAt(i);
+                    }
+                }
+                if(string==string2){
+                    document.write("Palindrom");
+                }else{
+                    document.write("no palindrom")
+                }
+            }
+        function mirarcorr(string){
+            for(var i=0;i<string.length;i++){
+                if(string.charAt(i)=='@'){
+                    document.write("Te @")
+                }else{
+                    document.write("No te @")
+                }
+            }
+        }
+        function mriarcoses(string) {
+            //prin its first half
+            for(var i=0;(i<string.length/2);i++){
+                document.write(string.charAt(i));
+            }
+            //print last char
+            document.write(string.charAt(string.length));
+            //print it in reverse order
+            for(var i=string.length-1;i>=0;i--){
+                document.write(string.charAt(i));
+            }
+            //print every char separated by a white space
+            for(var i=0;i<string.length;i++){
+                document.write(string.charAt(i)+ ' ');
+            }
+            //print how many vowels are in text
+            for(var i=0;i<string.length;i++){
+                let aux=0;
+                if(string.charAt(i)==a||string.charAt(i)==e||string.charAt(i)==i||
+                string.charAt(i)==u||string.charAt(i)==o){
+                    aux++;
+                }
+            }
+            document.write(aux);
+        }
+        function diferenline(string){
+            var separa=string.split(" ");
+            for(var i=0;i<separa.length;i++){
+                document.write(separa[i]+"<br>")
+            }
+        }
+    
+    </script>
+</head>
+<body>
+    <button onclick="diferenline('hola me llamo david')">BUTTON</button>
+</body>
+</html>
