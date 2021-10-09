@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function date(){
+            let a=new Date();
+            a=a.getMonth()+1;
+            if(a<=3){
+                return "1th";
+            }else if(a<=6){
+                return "2nd";
+            }else if(a<=7){
+                return "3rd";
+            }else if(a<=12){
+                return "4th";
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

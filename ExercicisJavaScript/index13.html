@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function exercisea( a,  b,  c){
+
+            if(a<b&&a<c){
+                return a;
+            }else if(b<a&&b<c){
+                return b;
+            }else if(c<a&&c<b){
+                return c;
+            }
+        }
+        function exerciseb(a,b,c){
+            if(a<b&&b<c){
+                document.write(a+" "+b+" "+c);
+            }else if(a<c&&c<b){
+                document.write(a+" "+c+" "+b);
+            }else if(b<a&&a<c){
+                document.write(b+" "+a+" "+c);
+            }else if(b<c&&c<a){
+                document.write(b+" "+c+" "+a);
+            }else if(c<b&&b<a){
+                document.write(c+" "+b+" "+a);
+            }else if(c<a&&a<b){
+                document.write(c+" "+a+" "+b);
+            }
+        }
+        function exercisec(a){
+            a=a*4;
+            return a;
+        }
+        function exercised(x){
+            return x.toString().length;
+        }
+        function exercisee(num1,num2,num3){
+            let aux;
+            aux=(num1+num2+num3)/3;
+            return aux;
+        }
+        function exercisef(a,b,c,d,e){
+            a=prompt("fica num",",");
+            b=prompt("fica num",",");
+            c=prompt("fica num",",");
+            d=prompt("fica num",",");
+            e=prompt("fica num",",");
+            a= parseInt(a);
+            b= parseInt(b);
+            c= parseInt(c);
+            d= parseInt(d);
+            e= parseInt(e);
+            document.write(a+b+c+d+e)
+            return a+b+c+d+e;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="exercisef(10,5,0)">BUTTON</button>
+</body>
+</html>
