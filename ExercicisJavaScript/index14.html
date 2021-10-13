@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addition(value1,value2){
+            this.value1=value1;
+            this.value2=value2;
+
+            this.loadValue1=loadValue1;
+            function loadValue1(value){
+                this.value1=value1;
+            }
+            this.loadValue2=loadValue2;
+            function loadValue2(value){
+                this.value1=value1;
+            }
+            this.result=result;
+            function result(){
+                return this.value1+this.value2;
+            }
+
+        }
+        function Person(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        function Company(name,topAgeWorkers){
+            this.name=name;
+            this.topAgeWorkers;
+        }
+        function nose(){
+            var ppl=[];
+            ppl.push(Person("pep",32));
+            ppl.push(Person("Javier",65));
+            let x= Company("javier",60);
+            for(Person in ppl){
+                if(Person.age>Company.topAgeWorkers){
+                    return false;
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
