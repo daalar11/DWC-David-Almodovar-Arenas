@@ -5,26 +5,140 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="cotxo.js"></script>
+    <script>
+
+        var llista=[];
+        llista[0]=new Cotxo("123456CL","SEAT","red",16000);
+        llista[1]=new Cotxo("123456CL","SEAT","red",15000);
+        llista[2]=new Cotxo("123456CL","SEAT","red",14000);
+        //Recorre la lista de coches i retorna un <li> </li> para escribirlo en la pantalla
+        function printLlista(){
+            var txt="";
+            for(let i=0;i<llista.length;i++){
+            txt+="<li>"+llista[i].info()+"</li>";
+            }
+            return txt;
+        }
+        //Coje los valores del formulario y crea un coche con el constructor
+        function creaCotxo(){
+            var mat=document.getElementById("matricula").value;
+            var mod=document.getElementById("model").value;
+            var col=document.getElementById("color").value;
+            var pre=document.getElementById("preu").value;
+            return new Cotxo(mat,mod,col,pre);
+        }
+        function inserInici(){
+            //Llama a la funcion para crear coche con los valores del formulario i lo guarda en una variable
+            var c=creaCotxo();
+            //Lo mete al principio de la lista
+            llista.unshift(c);
+            //La escribe
+            printLlista();
+            //Reescribe la pagina
+            rePrint();
+        }
+        function inserFinal(){
+            //Llama a la funcion para crear coche con los valores del formulario i lo guarda en una variable
+            var c=creaCotxo();
+            //Lo mete al final de la lista
+            llista.push(c);
+            //La escribe
+            printLlista();
+            rePrint();
+        }
+        function removeInici(){
+            //Elimina el primero de la lista
+            llista.shift();
+            //La escribe
+            printLlista();
+            rePrint();
+        }
+        function removeFinal(){
+            //Elimina el final de a lista 
+            llista.pop();
+            //La escribe
+            printLlista();
+            rePrint();
+        }
+        function ordenarAsc(){
+            //sort ordena por alfabetico pero dandole esta funcion lo que hace es comprar los precios 
+            llista.sort(function(a,b){return a.preu-b.preu})
+            rePrint();
+        }
+        function ordenarDesc(){
+            //sort ordena por alfabetico pero dandole esta funcion lo que hace es comprar los precios si b-a es positivo b es mas grande, 
+            //si no es mas pequeño
+            llista.sort(function(a,b){return b.preu-a.preu})
+            rePrint();
+        }
+        function isSeat(){
+            var hiha=false;
+            for(c in llista){
+                if(llista[c].model.toUpperCase()=="SEAT"){
+                    hiha=true;
+                    break;
+                }
+            }
+            //Si la varibale es true coje el valor de Si, si es false el de no
+            var x=hiha?"Si, ":"No "
+            alert(x+"Hi ha SEAT? ");
+        }
+        function quantRed(){
+            var hiha=0;
+            for(c in llista){
+                if(llista[c].color.toUpperCase()=="RED"){
+                    hiha++;
+                }
+            }
+            alert("Hi ha "+hiha+" vermells.");
+        }
+        function euToDol(){
+            for(c in llista){
+                llista[c].convert2Dolars();
+            }
+            rePrint();
+        }
+        function DoltoEu(){
+            for(c in llista){
+                llista[c].convert2Eur();
+            }
+            rePrint();
+        }
+        function rePrint(){
+            //Reescribe la pagina
+            document.getElementById("llista").innerHTML=printLlista();
+            document.getElementById("numcotoxos").innerHTML=llista.length;
+        }
+        
+
+    </script>
 </head>
 <body>
-    <h1></h1>
-    <p></p>
-    <ul>
-
-    </ul>
-    <input type="text"/>
-    <input type="text"/>
-    <input type="text"/>
-    <input type="text"/>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
+    <h1>Llista cotxes</h1>
+    <p><span id="numcotoxos">0</span> Cotxos</p>
+    <ol id="llista">
+        
+    </ol>
+    <hr>
+    Matricula:<input id="matricula" type="text"/>
+    Model:<input id="model" type="text"/>
+    Color:<input id="color" type="text"/>
+    Preu:<input id="preu" type="text"/>
+    <hr>
+    <button id="aInici" onclick="inserInici()">Afegir Inici</button> 
+    <button id="" onclick="inserFinal()">Afegir Final</button>
+    <button id="" onclick="removeInici()">Llevar Inici</button>
+    <button id="" onclick="removeFinal()">Llevar Final</button>
+    <button id="" onclick="ordenarAsc()">Ordenar Ascendent</button>
+    <button id="" onclick="ordenarDesc()">Ordenar Descendent</button>
+    <button id="" onclick="isSeat()">Hi ha seat?</button>
+    <button id="" onclick="euToDol()">Conversio € a $</button>
+    <button id="" onclick="DoltoEu()">Conversio $ a €</button>
+    <button id="" onclick="covert2Dolars()">Quants vermells?</button>
+    <script>
+        document.getElementById("llista").innerHTML=printLlista();
+        document.getElementById("numcotoxos").innerHTML=llista.length;
+    </script>
 </body>
 </html>
