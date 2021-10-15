@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function agafaValor(){
+           var x= document.getElementById("test").value;
+            x=Math.sqrt(x);
+            alert(x);
+        }
+        function mostraGran(){
+            var z=document.getElementById("test2").value;
+            var o=document.getElementById("test3").value;
+            if(z>o){
+                alert(z);
+            }else{
+                alert(o);
+            }
+        }
+        function concatena(){
+            alert(document.getElementById("test4").value + document.getElementById("test5").value);
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="test"/>
+    <button onclick="agafaValor()">PITJA</button>
+    <hr>
+    <input type="text" id="test2"/><input type="text" id="test3"/>
+    <button onclick="mostraGran()">PITJA</button>
+    <hr>
+    <input type="text" id="test4"/><input type="text" id="test5"/>
+    <button onclick="concatena()">PITJA</button>
+</body>
+</html>
