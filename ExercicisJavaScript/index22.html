@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pizzaPrize(){
+            document.getElementById("textarea").innerHTML=document.getElementById("pizza").value;
+        }
+        function calcPrize(){
+            var parsear=0;
+            var preuTotal=0;
+            parsear=parseInt(document.getElementById("proccesor").value);
+            preuTotal+=parsear;
+            parsear=parseInt(document.getElementById("monitor").value);
+            preuTotal+=parsear;
+            parsear=parseInt(document.getElementById("hardisk").value);
+            preuTotal+=parsear;
+            document.getElementById("textarea2").innerHTML=preuTotal;
+        }   
+        function pizzaPrice2(){
+            var num=0;
+            num=parseInt(document.getElementById("pizza2").value)*parseInt(document.getElementById("text").value);
+            document.getElementById("textarea4").innerHTML=num;
+        }
+        function mark(){
+            var aux1=parseInt(document.getElementById("pizza3").value);
+            var aux2=parseInt(document.getElementById("pizza4").value);
+            var aux3=parseInt(document.getElementById("pizza5").value);
+            var aux4=parseInt(document.getElementById("pizza6").value);
+            var nota=0;
+            if(aux1==1){
+                nota+=2.5;
+            }else{
+                nota-=2.5;
+            }
+            if(aux2==1){
+                nota+=2.5;
+            }else{
+                nota-=2.5;
+            }
+            if(aux3==1){
+                nota+=2.5;
+            }else{
+                nota-=2.5;
+            }
+            if(aux4==1){
+                nota+=2.5;
+            }else{
+                nota-=2.5;
+            }
+            document.getElementById("text8").innerHTML=nota;
+        }
+    </script>
+</head>
+<body>
+<form>
+    <select id="pizza" onchange="pizzaPrize()">
+        <option value="6€">Pepperoni</option>
+        <option value="5€">QuatroFormaggi</option>
+        <option value="4€">Procciuto</option>
+    </select>
+    <p id="textarea"></p>
+    <hr>
+    <select id="proccesor" onchange="pizzaPrize()">
+        <option value="400">Intel I3</option>
+        <option value="600">Intel I5 </option>
+        <option value="800">Intel I7 </option>
+    </select>
+    <select id="monitor" onchange="pizzaPrize()">
+        <option value="250">Samsung 20'</option>
+        <option value="350">Samsung 22'</option>
+        <option value="550">Samsung 26'</option>
+    </select>
+    <select id="hardisk" onchange="pizzaPrize()">
+        <option value="300">500 Gb</option>
+        <option value="440">1 Tb </option>
+        <option value="500">3 Tb</option>
+    </select>
+    <button onmouseover="(calcPrize())">Calcular preu</button>
+    <p id="textarea2"></p>
+    <hr>
+    <select id="pizza2" onchange="pizzaPrize()">
+        <option value="6€">Pepperoni</option>
+        <option value="5€">QuatroFormaggi</option>
+        <option value="4€">Procciuto</option>
+    </select>
+    <input type="text">
+    <p id="textarea4"></p>
+    <button onmouseover="(pizzaPrice2())">Calcular preu</button>
+    <hr>
+    <select id="pizza3" onchange="pizzaPrize()">
+        <option value="1">Pepperoni</option>
+        <option value="0">QuatroFormaggi</option>
+        <option value="0">Procciuto</option>
+        <option value="0">BarbeQ</option>
+    </select>
+    <select id="pizza4" onchange="pizzaPrize()">
+        <option value="0">Pepperoni</option>
+        <option value="1">QuatroFormaggi</option>
+        <option value="0">Procciuto</option>
+        <option value="0">BarbeQ</option>
+    </select>
+    <select id="pizza5" onchange="pizzaPrize()">
+        <option value="0">Pepperoni</option>
+        <option value="0">QuatroFormaggi</option>
+        <option value="1">Procciuto</option>
+        <option value="0">BarbeQ</option>
+    </select>
+    <select id="pizza6" onchange="pizzaPrize()">
+        <option value="0">Pepperoni</option>
+        <option value="0">QuatroFormaggi</option>
+        <option value="0">Procciuto</option>
+        <option value="1">BarbeQ</option>
+    </select>
+    <p id="text8"></p>
+    <button onmouseover="(mark())">Calcular preu</button>
+</form>
+</body>
+</html>

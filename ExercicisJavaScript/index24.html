@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function data(){
+            if(document.getElementById("1").checked){
+                alert("Major de 18")
+            }
+            if(document.getElementById("2").checked){
+                alert("Menor de 18")
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="radio" id="1" value="major 18">major de 18
+        <input type="radio" id="2" value="menor de 18"> <p>menor de 18</p>
+    </form>
+    <button onclick="data()">Boto</button>
+</body>
+</html>
