@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function generateRandom(){
+            var w;
+            var a= Math.floor(Math.random()*3);
+            if(a==1){
+                w=open('https://www.google.com','','status=yes,width=600,height=300,menubar=yes');
+            }else if(a==2){
+                w=open('https://es.yahoo.com/?p=us&guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAHlamUruaUY0lUKtnWouGHt4X919oiMLFtMq1sy0_sWN4BkwKrmjxW8UIKzE1fKuYk2q19EUCfQl60FDS1j2Cmlpe9iuIeaRVOx9WeofUsAfY2J_sWwzIDFH5nif8Pzh0zhTPaMCKk8TMzhDz8Xzq89JA-kK9zJ5T8A0snDLdCVV','','status=yes,width=600,height=300,menubar=yes');
+            }else if(a==0){
+                w=open('https://www.bing.com/','','status=yes,width=600,height=300,menubar=yes');
+            }
+        }
+        function openW(){
+            var w=open('','','status=yes,width='+screen.availWidth+',height='+screen.availHeight+',menubar=yes')
+        }
+        function showCook(){
+            alert(navigator.cookieEnabled);
+        }
+    </script>
+</head>
+<body onload="showCook()">
+        <a onclick="generateRandom()" id="1">clica</a>
+        <button onclick="openW()"> pitjam</button>
+</body>
+</html>
