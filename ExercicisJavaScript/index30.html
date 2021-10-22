@@ -18,7 +18,7 @@
             }
         }
         function openW(){
-            var w=open('','','status=yes,width='+screen.availWidth+',height='+screen.availHeight+',menubar=yes')
+            var w=open('','','status=yes,width='+screen.availWidth+',height='+screen.availHeight/2+',menubar=yes' );
         }
         function showCook(){
             alert(navigator.cookieEnabled);
@@ -28,5 +28,6 @@
 <body onload="showCook()">
         <a onclick="generateRandom()" id="1">clica</a>
         <button onclick="openW()"> pitjam</button>
+        <p></p>
 </body>
 </html>
