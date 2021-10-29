@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <a href="">AAAAAAAAAAAA</a>
+    <button id="1">aaa</button>     <button id="2">aaa</button>     <button id="3">aaa</button>
+    <script>
+        $(document).ready(function(){
+            $("#1").click(function(){
+                $("a").attr("href","google.com");
+            });
+            $("#2").click(function(){
+                $("a").attr("href","twitter.com");
+            });
+            $("#3").click(function(){
+                $("a").attr("href","outlook.com");
+            });
+        });
+    </script>
+</body>
+</html>
