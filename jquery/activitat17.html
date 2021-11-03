@@ -9,9 +9,16 @@
     <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <form>
+        <input style="color: blue;" type="text">
+    </form>
     <script>
         $(document).ready(function(){
-            alert("Hola JQUERY");
+            $("input").blur(function(){
+                if($(this).val()==""){
+                alert("this can't be empty");
+                }
+            });
         });
     </script>
 </body>

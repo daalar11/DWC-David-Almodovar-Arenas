@@ -9,9 +9,19 @@
     <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div style="width: 800px;height: 70px;background-color: red;"></div>
     <script>
+        var x= false;
         $(document).ready(function(){
-            alert("Hola JQUERY");
+            $("div").dblclick(function(){
+                if(x==false){
+                    $(this).css({"width":"250px","height":"250px"})
+                    x=true;
+                }else{
+                    $(this).css({"width":"800px","height":"70px"})
+                    x=false;
+                }
+            });
         });
     </script>
 </body>

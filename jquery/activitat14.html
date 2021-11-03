@@ -9,9 +9,16 @@
     <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <button id="b1" value="Boto">Boto</button>
+    <button id="b2" value="Boto2">Boto2</button>
     <script>
         $(document).ready(function(){
-            alert("Hola JQUERY");
+          $("#b1").mousedown(function(){
+            $("body").css("background-color","red");
+          });
+          $("#b1").mouseup(function(){
+            $("body").css("background-color","white");
+          });
         });
     </script>
 </body>

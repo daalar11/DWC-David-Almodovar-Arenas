@@ -9,10 +9,26 @@
     <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <table>
+        <tr>
+            <td>col1</td>
+            <td>col2</td>
+        </tr>
+        <tr>
+            <td>colp</td>
+            <td>colc</td>
+        </tr>
+    </table>
     <script>
         $(document).ready(function(){
-            alert("Hola JQUERY");
+            $("td").hover(inChange,outChange);
         });
+        function inChange(){
+            $(this).css("background-color","red");
+        }
+        function outChange(){
+            $(this).css("background-color","white");
+        }
     </script>
 </body>
 </html>
