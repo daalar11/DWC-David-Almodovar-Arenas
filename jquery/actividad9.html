@@ -9,14 +9,16 @@
     <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <table>
-        <tr>
-            <th></th>
-        </tr>
-    </table>
+    <button id="b1">asa</button>
+    <button id="b2">asa</button>
     <script>
         $(document).ready(function(){
-            alert("Hola JQUERY");
+            $("#b1").click(function(){
+                alert($("head").html());
+            });
+            $("#b2").click(function(){
+                alert($("body").html());
+            });
         });
     </script>
 </body>
