@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="corx" style="width: 200px; height: 200px;">
+
+    </div>
+    <script>
+        //Variable booleana pra control si estas dentro o fuera
+        var x;
+        var dins = false;
+        x=$(document);
+        x.ready(initEvents);
+
+        function initEvents() {
+        var x;
+        x=$(document);
+        x.mousemove(moveMouse);
+        }
+
+        function moveMouse(event) {
+        //se asigna a x el valor del div
+        var x;
+        x=$("#corx");
+        //se mira si el raton esta dentro o fuera y se cambia la variable de control
+        $("#corx").hover(inside,out);
+        if(dins){
+            //Si estas dentro se mirar la posicion
+        x.text("coordinate x="+event.clientX+"<br> coordinate y="+event.clientY);
+        }
+        else {
+            x.text("estas fora el div");
+        }
+       
+        }
+
+        function inside(){
+            dins = true;
+        }
+
+        function out(){
+            dins = false;
+        }
+    </script>
+</body>
+</html>
