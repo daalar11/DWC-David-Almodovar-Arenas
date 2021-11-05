@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form id="f1">
+
+    </form>
+    <h1>ADD JQUERY.</h1>
+<div id="contenidor"></div>
+<hr/>
+    <button id="bu">PULSAME</button>
+    <script>
+        $(document).ready(function(){
+            
+            var numInput=0;
+    $("#bu").click(function(){
+        var c=$("<span/>").attr("id","span"+numInput);
+        var nouInput=$("<input/>",{type : 'text',
+                                     id   : 'input_'+numInput,
+                                     value: numInput
+                                  }
+        );
+        var b      = $("<button/>",{ id   : 'boto_'+ numInput,
+                                     text : "Botó "+ numInput,
+                                     click: function (){ 
+                                        $(this).parent("span").remove(); 
+                                      }
+                                    }
+                    );
+       
+                    $(c).append(nouInput, b);
+                    $("#f1").append(c);
+        
+
+        numInput++;
+    })
+
+        });
+    </script>
+</body>
+</html>
