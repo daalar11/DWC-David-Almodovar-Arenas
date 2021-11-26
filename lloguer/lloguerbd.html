@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Hint Cotxes (PHP)</h2>
+<select id="cases">
+</select>
+ 
+<script>
+
+	var xhttp = xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+	  		document.getElementById("cases").innerHTML=this.responseText;
+  		}
+	};
+	xhttp.open("GET", "lloguerbd.php", true);
+	xhttp.send();
+
+</script>
+
+</body>
+</html>

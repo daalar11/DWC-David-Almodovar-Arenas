@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <input id="t1" name="q" type="text" onkeyup="agafaHint()">
+
+    <div id="d1">
+        <p><span id="txtHint"></span></p>
+        <hr>
+        <button onclick="loadDoc()">Carregar XML</button>
+    </div>
+    <hr>
+    <script>
+        function agafaHint() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML=this.responseText;
+            }
+        };
+        var info= document.getElementById("t1").value;
+        xhttp.open("GET", "hola.php?q="+info, true);
+        xhttp.send();
+    }
+
+    </script>
+</body>
+</html>

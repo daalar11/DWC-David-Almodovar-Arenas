@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <select id="s1">
+        <option value="All">All Countrys</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+    </select>
+    <div id="d1">
+        
+        <table id="demo" border="1"></table>
+        <hr>
+        <button onclick="loadDoc()">Carregar XML</button>
+    </div>
+    <hr>
+    <script>
+        function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var s = document.getElementById("s1").value;
+                creaTaula(xhttp,s);
+            }
+        };
+        xhttp.open("GET", "catalog.xml", true);
+        xhttp.send();
+    }
+    function creaTaula(xhttp,s){
+            var xml= xhttp.responseXML;
+            var cds= xml.getElementsByTagName("CD");
+            var txt="<tr><th>Nom</th><th>Titol</th></tr>";
+            console.log(cds);
+            for(var i=0;i<cds.length;i++){
+                    var nom= cds[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+                    var titol= cds[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+                    var pais= cds[i].getElementsByTagName("COUNTRY")[0].childNodes[0].nodeValue;
+                    var fila="<tr><td>"+nom+"</td><td>"+titol+"</td></tr>";
+                    if(s=="All"||s==pais){
+                    txt+=fila;
+                    }
+                    document.getElementById("demo").innerHTML=txt;
+            }
+    }
+    </script>
+</body>
+</html>

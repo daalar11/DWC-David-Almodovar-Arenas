@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js" integrity="sha256-aSe2ZC5QeunlL/w/7PsVKmV+fa0eDbmybn/ptsKHR6I=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="d1">
+        Abans de load
+    </div>
+    <hr>
+    <button id="b1">LOAD</button>
+    <button id="b2">LOAD2</button>
+    <button id="b3">LOAD3</button>
+    <script>
+        $(document).ready(function(){
+            $("#b1").click(function(){
+                $('#d1').load("hola.php",function(data,statusTxt){
+                    $('#d1').html("Data: "+ data + "<br>Status: "+statusTxt);
+                });
+            });
+            $("#b2").click(function(){
+                $('#d1').load("missatge.txt",function(data,statusTxt){
+                    $('#d1').html("Data: "+ data + "<br>Status: "+statusTxt);
+                });
+            });
+            $("#b3").click(function(){
+                $.get("hola.php?user=PACO",function(data,statusTxt){
+                    $('#d1').html("Data: "+ data + "<br>Status: "+statusTxt);
+                });
+            });
+            
+        });
+    </script>
+</body>
+</html>

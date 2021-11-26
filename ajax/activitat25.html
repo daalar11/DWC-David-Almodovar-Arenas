@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.2.0.min.js"></script>
+</head>
+<body>
+    <!--<form action="actio.php" method="get">-->
+        <input type="text" id="i1" name="i1" val="">
+        <input type="text" id="i2" name="i2" val="">
+        <button id="b1">SUMA</button><button id="b2">RESTA</button>
+        <button id="b3" value="mult">MULTIPLICACION</button><button id="b4">DIVISION</button>
+    <!--</form>-->
+      <div id="d1"></div>
+    <hr>
+    
+    <script>
+        $(document).ready(function(){
+
+           $("#b3").click(function(){
+               var x=document.getElementById("i1").value;
+               var y=document.getElementById("i2").value;
+                $.get("actio.php",{i1:x,i2:y,oper:'mult'},function(data,statusTxt){
+                    $('#d1').html("Data: "+ data + "<br>Status: "+statusTxt);
+                });
+
+            });
+            
+        });
+       
+    </script>
+</body>
+</html>
