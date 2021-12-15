@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+        
+<div class="container">
+    <select id="meuSelect" class="form-control">
+        <option value="0">Selecciona</option>
+    </select>
+    <div class="alert" id="meuAlert" role="alert">
+      </div>
+</div>
+
+ <!-- Modal Edita Model -->
+ <div id="modalEdita" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <!-- header modal -->
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edita Carroceria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!-- body modal -->
+
+        <div class="modal-body">
+          <form role="form" name="formEdita" action="updatemarca.php" method="get">
+              <div class="row">
+                  <div class="col-md-6">
+                      <label>Id:</label>
+                      <input id="idc" type="text" class="form-control" placeholder="Id Carroceria" readonly="readonly" name="id">
+                  </div>
+                  <div class="col-md-6">
+                      <label>Nom:</label>
+                      <input id="nomc" type="text"class="form-control" placeholder="Nom Carroceria" name="nom">
+                  </div>
+              </div>
+          </form>
+        </div>
+
+        <!-- footer modal -->
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tancar</button>
+          <button id="bSubmit" type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script>
+        $("#meuAlert").css("display","none");
+        //Recoje todos las marcas y las pone en el selcet
+         $(document).ready(function(){
+                function loadCardsModels() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    $("#demo").html(this.responseText);
+                    var models = JSON.parse(this.responseText);
+                    for(c in models){
+                        var id=models[c].id;
+                        var nom=models[c].nom;
+                        var item=$("<option />",{value:id,text:nom});
+                        $("#meuSelect").append(item);
+                }
+            }
+        }
+        xhttp.open("GET", "marques.php", true);
+        xhttp.send();
+        }
+        //coje una marca del select
+        function loadMarca(idMarca) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    $("#demo").html(this.responseText);
+                    var models = JSON.parse(this.responseText)[0];
+                       console.log(models);
+                        $("#idc").val(models.id);
+                        $("#nomc").val(models.nom);
+            }
+        }
+        xhttp.open("GET", "marca.php?id="+idMarca, true);
+        xhttp.send();
+        }
+        loadCardsModels()
+        //Cuando cambias el select coje su marca y la pone en el moda
+        $("#meuSelect").change(function(){
+            var idMarca=$(this).val();
+            loadMarca(idMarca);
+            $("#modalEdita").modal("show");
+        });
+        //Esto hace que al enviar el formulario nio se recarge la pagina, si no que haga una peticion ajax
+        function updateMarca(idMarca,nomMarca) {
+                    var objecte={"id":idMarca,"nom":nomMarca};
+                    var dades= JSON.stringify(objecte);
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                    var info = this.responseText;
+                    $("#meuAlert").html(info);
+                    $("#meuAlert").css("display","block");
+                    info=info.trim();
+                    var cAlert=(info == 'OK') ? "alert-primary":"alert-success";
+                    console.log(info=='OK');
+                    $("#meuAlert").addClass(cAlert);
+                    console.log(info);
+            }
+        }
+        xhttp.open("GET", "updatemarca.php?x="+dades, false);
+        xhttp.send();
+        }
+        $('#bSubmit').click(function() {
+          var id=$("#idc").val();
+          var nom=$("#nomc").val();
+            updateMarca(id,nom);         
+          $("#meuSelect").empty();
+          loadCardsModels();
+          $("#modalEdita").modal("hide");
+
+        });
+        
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

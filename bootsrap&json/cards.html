@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="cardsModels" class="container">
+       
+    </div>
+
+    <script>
+        $(document).ready(function(){
+
+function loadCardsModels() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      $("#demo").html(this.responseText);
+      var models = JSON.parse(this.responseText);
+      var i=0;
+      for(c in models){
+        if(i%2==0){
+        var rowdiv=$("<div />",{class:"row"});
+        $("#cardsModels").append(rowdiv);
+        }
+        i++;
+        var div1=$("<div />").addClass("card").attr("style","width: 18rem;");
+        var img=$("<img />",{"src":"fotos/"+models[c].foto,"alt":models[c].foto.split(".")[0]})
+        var div2=$("<div />").addClass("card-body");
+        var h5=$("<h5 />").addClass("card-tittle").text(models[c].model);
+        var p=$("<p />").addClass("card-text").text(models[c].preu +"€");
+        var a=$("<a />").addClass("btn btn-primary").attr("href","model.php?=id"+models[c].matricula).text("veure");
+        div1.append(img,div2);
+        div2.append(h5,p,a);
+        var coldiv=$("<div />",{class:"col-sm-6"});
+        coldiv.append(div1);
+        rowdiv.append(coldiv);
+        
+      }    
+    }
+            /*<div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">blabla</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>*/
+  };
+  xhttp.open("GET", "cotxes.php", true);
+  xhttp.send();
+}
+
+loadCardsModels();
+
+});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
