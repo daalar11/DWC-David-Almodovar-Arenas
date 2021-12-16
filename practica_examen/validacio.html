@@ -1,0 +1,110 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Validació Formulari</title>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		NOM: <input type="text" id="d1" /><span id="e1"></span><br/>
+		EDAT: <input type="number" id="d2" /><span id="e2"></span><br/>
+		EMAIL: <input type="text" id="d3" /><span id="e3"></span><br/>
+		SEXE: <select id="d4">
+					<option value="0">Tria un</option>
+					<option value="H">HOME</option>
+					<option value="D">DONA</option>
+				</select><span id="e4"></span><br/>
+		HOBBIES: <input type="checkbox" id="d5" />Futbol 
+				 <input type="checkbox" id="d6" />Lectura 
+				 <input type="checkbox" id="d7" />Escacs 
+				 <input type="checkbox" id="d8" />Aerobic 
+				 <span id="e5"></span>
+				 <br/>
+		UNIVERSITARI: <input type="radio" name="univ" id="d9" value="S" />Sí  
+					  <input type="radio" name="univ" id="d10" value="N" />No  
+					  <span id="e9"></span><br/>
+		<input type="button" id="b1" value="VALIDATE"/>
+		<script>
+            $(document).ready(function(){
+            
+            $("#b1").click(function(){
+                valName();
+                valEdat();
+                valEmail();
+                valSexe();
+                valHobbies()
+                valUniversitari()
+;;            });
+        });
+        function valName(){
+                var n=$("#d1").val();
+                if(n==null || n==""){
+                    $("#d1").css("background-color","red");
+                    $("#e1").text("Has d'introduri un nom!");
+                }else{
+                    $("#d1").css("background-color","green");
+                    $("#e1").text("")
+                }
+            
+            }
+        function valEdat(){
+            var age=parseInt($("#d2").val());
+            if(age<18){
+                $("#d2").css("background-color","red");
+                $("#e2").text("Has de ser major d'edat!");
+            }else if(age>=18){
+                $("#d2").css("background-color","green");
+                $("#e2").text("")
+            }
+        }
+        function valEmail(){
+            var email=$("#d3").val();
+            var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+
+            if (caract.test(email) == false){
+               $("#d3").css("background-color","red");
+               $("#e3").text("l'email es incorrecte!");
+
+                return false;
+            }else{
+                $("#d3").css("background-color","green");
+               $("#e3").text("");
+        //        $(div).html('');
+                return true;
+            }
+        }
+        function valSexe(){
+            var sexe=$("#d4").val();
+            $("#e4").text(sexe);
+            if(sexe==0){
+                $("#d4").css("background-color","red");
+               $("#e4").text("Selecciona sexe");
+            }else{
+                $("#d4").css("background-color","green");
+               $("#e4").text("");
+            }
+        }
+        function valHobbies(){
+            var hobbies = $("input[type='checkbox']:checked").length - 1;
+				if(hobbies>=2 && hobbies<4){
+					$("#e5").css("background-color","green");
+               $("#e5").text("Correcte");
+				}
+				else {
+					$("#e5").css("background-color","red");
+               $("#e5").text("2 3 o 4!!!");
+				}
+        }
+        function valUniversitari(){
+            var universitari=$("input[name='univ']:checked").val();
+            if(universitari=="N"){
+                $("#e9").css("background-color","green");
+               $("#e9").text("Correcte");
+            }else{
+                $("#e9").css("background-color","red");
+               $("#e9").text("Ha de ser no!");  
+            }
+        }
+        
+        </script>
+	</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="producte_class.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style>
+        .Portatil {
+            color:red;
+        }
+
+        .SobreTaula {
+            color:green;
+        }
+
+        .Mobil {
+            color:blue;
+        }
+
+        .Tablet {
+            color:yellow;
+        }
+    </style>
+    </head>
+    <body>
+            Referencia: <input type="text" id="inputref"/><br/>
+            Nom: <input type="text" id="inputnom"/><br/>
+            Marca: <select id="selectmarca">
+                        <option value="Apple">Apple</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="xiaomi">Xiaomi</option>
+                    </select><br/>
+            Categoria: <select id="selectcategoria">
+                        <option value="Portatil">Portatil</option>
+                        <option value="SobreTaula">SobreTaula</option>
+                        <option value="Mobil">Mòbil</option>
+                        <option value="Tablet">Tablet</option>
+                    </select><br/>
+            PVP: <input type="number" id="inputpvp"/><br/>
+        <hr/>
+        <button id="b1">Add Product</button>
+        <button id="b2">Print List</button>
+        <button id="b3">Remove Product</button>
+        <button id="b4">Filter by Category</button>
+        <button id="b5">Order by Price Asc</button>
+        <button id="b6">Order by Price Desc</button>
+        <button id="b7">Sum Up</button>
+        <button id="b8">Discount 10%</button>
+        <button id="b9">Edit Product</button>
+        <h2>Shopping List</h2>
+        <select id="listRefs"></select>
+        <ol id="myList">
+        </ol>
+        <script>
+            var productes=[];
+             $(document).ready(function(){
+                 
+            
+            productes.push(new Producte(1000,"chocolate","nestle","dolç",130));
+            productes.push(new Producte(1200,"Pa","Bimbo","pa",20));
+            productes.push(new Producte(1400,"chuche","haribo","dolç",100));
+            for(var producte in productes){
+                console.log(productes[producte]);
+                var LI = $("<li />").text(productes[producte].print());
+                $("#myList").append(LI);
+            }
+            $("#b1").click(function(){
+                   addProduct(); 
+            });
+            $("#b3").click(function(){
+                   removeProduct(); 
+            });
+            $("#b4").click(function(){
+                filterCategory();
+            });
+            $("#b5").click(function (){
+                ordenarAsc();
+            });
+            $("#b6").click(function() {
+               ordenarDesc(); 
+            });
+            $("#b7").click(function(){
+                sumarPreu();
+            });
+            $("#b8").click(function(){
+                descompteTotal();
+            });
+            $("#b9").click(function(){
+                editProduct();
+            });
+
+            
+            function printList(){
+                $("#myList").empty();
+                for(var producte in productes){
+                var LI = $("<li />").text(productes[producte].print());
+                $("#myList").append(LI);
+            }
+            }
+        function addProduct(){
+            //vacio la lista para poder imprimir
+            $("#myList").empty();
+            productes.push(new Producte($("#inputref").val(),$("#inputnom").val(),$("#selectmarca").val(),$("#selectcategoria").val(),$("#inputpvp").val()));
+            printList();
+        }
+        function removeProduct(){
+            $("#myList").empty();
+            var ref=$("#inputref").val();
+            for(var producte in productes){
+                if(productes[producte].getReferencia()==ref){
+                    delete productes[producte];
+                }
+                printList();
+            }
+        }
+        function filterCategory(){
+            $("#myList").empty();
+            for(var producte in productes){
+                if(productes[producte].getCategoria()==$("#selectcategoria").val()){
+                var LI = $("<li />").text(productes[producte].print());
+                $("#myList").append(LI);
+                }
+            }
+        }
+
+        function ordenarAsc(){
+           
+            productes.sort(function(a, b) {
+                return parseFloat(a.pvp) - parseFloat(b.pvp);
+               });
+            printList();
+        }
+        function ordenarDesc(){
+            productes.sort((a, b) => parseFloat(b.pvp) - parseFloat(a.pvp));
+           printList();
+       }
+       function sumarPreu(){
+           var suma=0;
+           for(var producte in productes){
+               suma+=productes[producte].pvp;
+        }
+        alert("El pvp total es: "+suma);
+        return suma;
+       }
+       function descompteTotal(){
+           var suma=0;
+        for(var producte in productes){
+               suma+=productes[producte].pvp;
+        }
+        suma-=suma*0.10;
+        alert("El preu total amb un 10% de descompte es: "+suma);
+       }
+       function editProduct(){
+           var producteEditat= new Producte($("#inputref").val(),$("#inputnom").val(),$("#selectmarca").val(),$("#selectcategoria").val(),$("#inputpvp").val());
+           for(var producte in productes){
+               console.log(producteEditat);
+            if(productes[producte].getReferencia()==producteEditat.getReferencia()){
+                productes[producte]=producteEditat;
+            }
+           }
+           printList();
+       }
+    });
+        </script>
+    </body>
+</html>
