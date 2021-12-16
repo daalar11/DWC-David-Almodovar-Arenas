@@ -94,14 +94,16 @@
                 for(var producte in productes){
                 var LI = $("<li />").text(productes[producte].print());
                 $("#myList").append(LI);
+                }
             }
-            }
+
         function addProduct(){
             //vacio la lista para poder imprimir
             $("#myList").empty();
             productes.push(new Producte($("#inputref").val(),$("#inputnom").val(),$("#selectmarca").val(),$("#selectcategoria").val(),$("#inputpvp").val()));
             printList();
         }
+
         function removeProduct(){
             $("#myList").empty();
             var ref=$("#inputref").val();
@@ -112,6 +114,7 @@
                 printList();
             }
         }
+
         function filterCategory(){
             $("#myList").empty();
             for(var producte in productes){
@@ -129,10 +132,12 @@
                });
             printList();
         }
+
         function ordenarDesc(){
             productes.sort((a, b) => parseFloat(b.pvp) - parseFloat(a.pvp));
            printList();
        }
+
        function sumarPreu(){
            var suma=0;
            for(var producte in productes){
@@ -141,6 +146,7 @@
         alert("El pvp total es: "+suma);
         return suma;
        }
+
        function descompteTotal(){
            var suma=0;
         for(var producte in productes){
@@ -149,6 +155,7 @@
         suma-=suma*0.10;
         alert("El preu total amb un 10% de descompte es: "+suma);
        }
+
        function editProduct(){
            var producteEditat= new Producte($("#inputref").val(),$("#inputnom").val(),$("#selectmarca").val(),$("#selectcategoria").val(),$("#inputpvp").val());
            for(var producte in productes){
